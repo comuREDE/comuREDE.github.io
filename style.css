@@ -20,8 +20,8 @@ button:focus{
 }
 /* Settings -> end */
 body{
-	background: #8641C4 url('./images/bc_landscape-purple.jpg') no-repeat local bottom;
-	background-size: cover;
+	background: #8641C4 url('./images/bc_landscape-purple.jpg') no-repeat fixed bottom;
+	background-size: 100%;
 }
 
 .header{
@@ -78,7 +78,7 @@ body{
 }
 
 .section__sobre__title{
-	margin: 5px 0;
+	margin: 10px 0;
 	align-self: flex-start;
 	font-weight: 700;
 	font-size: 30px;
@@ -89,7 +89,7 @@ body{
 .section__sobre__paragraph{
 	margin: 5px 0;
 	font-weight: 600;
-	font-size: 20px;
+	font-size: 23px;
 	color: #46A59D;
 	text-align: justify;
 }
