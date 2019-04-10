@@ -1,0 +1,248 @@
+@import './fonts/fonts.css';
+
+*, *:after, *:before{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+/* Settings -> start */
+h1,h2,h3,
+h4,h5,h6,
+p, button, input,
+a,label{
+  font-family: 'Proxima Nova', sans-serif;
+  text-align: center;
+}
+input:focus,
+button:focus{
+  outline: none;
+}
+/* Settings -> end */
+body{
+	background: #8641C4 url('./images/bc_landscape-purple.jpg') no-repeat local bottom;
+	background-size: cover;
+}
+
+.header{
+	width: 100%;
+	height: 92px;
+	padding: 0 50px;
+	background: #46A59D;
+
+	position: fixed;
+	top: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header__title{
+	font-weight: 700;
+	font-size: 40px;
+	color: #8641C4;
+}
+
+.header__menu{
+	min-width: 30%;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header__menu__items{
+	margin-left: 30px;
+	font-weight: 700;
+	font-size: 30px;
+	color: #8641C4;
+}
+
+.main{}
+
+.main__section{
+	min-height: 100vh;
+	padding: 0 100px;
+}
+
+.section__sobre{}
+
+.section__sobre__logo{
+	width: 15%;
+	margin: 8% auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.section__sobre__title{
+	margin: 5px 0;
+	align-self: flex-start;
+	font-weight: 700;
+	font-size: 30px;
+	color: #46A59D;
+	text-align: left;
+}
+
+.section__sobre__paragraph{
+	margin: 5px 0;
+	font-weight: 600;
+	font-size: 20px;
+	color: #46A59D;
+	text-align: justify;
+}
+
+.section__video{
+	display: flex;
+	justify-content: center
+}
+
+.section__video__item{
+	width: 40%;
+	margin: 0 27px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	align-content: flex-start
+}
+
+.section__video__item__icon{
+	width: 60px;
+	margin-right: 15px;
+}
+
+.section__video__item__title{
+	font-weight: 700;
+	font-size: 30px;
+	color: #DB805D;
+}
+
+.section__video__item__media{
+	width: 100%;
+	height: 35vh;
+	margin: 20px 0;
+	background: #000;
+}
+
+.section__contact{
+	padding-top: 10%;
+	padding-bottom: 5%;
+	background: #8641C4 url('./images/bc_air-purple.jpg') no-repeat;
+	background-size: cover;
+
+	display: flex;
+	justify-content: center;
+}
+
+.section__contact__info{
+	width: 40%;
+	min-height: 50vh;
+	margin: 0 27px;
+
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.section__contact__info__title{
+	font-weight: 700;
+	font-size: 30px;
+	color: #DB805D;
+	text-align: left;
+}
+
+.section__contact__info__text{
+	font-weight: 600;
+	font-size: 20px;
+	color: #46A59D;
+	text-align: left;
+}
+
+.section__contact__info__adressContainer{
+	width: 100%;
+	margin: 15px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+}
+
+.section__contact__info__adressContainer__icon{
+	width: 82px;
+}
+
+.section__contact__info__adressContainer__text{
+	max-width: 350px;
+	margin-left: 20px;
+}
+
+.section__contact__info__socialMediaContainer{
+	position: absolute;
+	bottom: 0;
+}
+
+.section__contact__info__socialMediaContainer__item{}
+
+.section__contact__email{
+	width: 40%;
+	margin: 0 27px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.section__contact__email__icon{
+	width: 82px;
+}
+
+.section__contact__email__form{
+	width: 100%;
+	padding: 20px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	background: #46A59D;
+}
+
+.section__contact__email__label{
+	width: 100%;
+	font-weight: 700;
+	font-size: 20px;
+	color: #8641C4;
+	text-align: left;
+}
+
+.section__contact__email__input,
+.section__contact__email__textArea{
+	width: 100%;
+	display: block;
+	padding: 10px 20px;
+	border-radius: 10px;
+	border: none;
+}
+.section__contact__email__textArea{
+	height: 200px;
+}
+.section__contact__email__btnContainer{
+	padding-top: 5px;
+	padding-left: 5px;
+	background: #46A59D;
+	border-radius: 10px 0 10px 0;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+.section__contact__email__btn{
+	padding: 5px 10px;
+	font-weight: 600;
+	font-size: 15px;
+	color: #FFF;
+	background: #DB805D; 
+	border-radius: 5px;
+	border: none;
+}
