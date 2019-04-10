@@ -21,7 +21,7 @@ button:focus{
 /* Settings -> end */
 body{
 	background: #8641C4 url('./images/bc_landscape-purple.jpg') no-repeat fixed bottom;
-	background-size: 100%;
+	background-size: cover;
 }
 
 .header{
@@ -31,6 +31,7 @@ body{
 	background: #46A59D;
 
 	position: fixed;
+	z-index: 1;
 	top: 0;
 
 	display: flex;
@@ -53,6 +54,14 @@ body{
 	justify-content: space-between;
 }
 
+.header__menu__mobileClose{
+	width: 40px;
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	display: none;
+}
+
 .header__menu__items{
 	margin-left: 30px;
 	font-weight: 700;
@@ -60,21 +69,62 @@ body{
 	color: #8641C4;
 }
 
+.header__menu__mobile{
+	display: none;
+	width: 40px;
+}
+
+@media(max-width: 780px) {
+	.header__menu{
+		display: none;
+		width: 100%;
+		height: 100vh;
+		
+		position: absolute;
+		top: 0;
+		left: 0;
+		
+		background: #46A59D;
+		
+		flex-direction: column;
+		justify-content: center;
+		align-content: center;
+	}
+	.header__menu__items {
+		margin: 20px 0;
+	}
+	.header__menu__mobile{
+		display: initial;
+	}
+	.header__menu__mobile:hover ~ .header__menu{
+		display: flex;
+	}
+}
+
 .main{}
 
 .main__section{
 	min-height: 100vh;
-	padding: 0 100px;
+	padding: 50px 100px;
 }
 
-.section__sobre{}
+@media(max-width: 780px){
+	.main__section {
+		padding: 20px;
+	}	
+}
 
-.section__sobre__logo{
-	width: 15%;
-	margin: 8% auto;
+.section__sobre{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	align-content: flex-end;	
+}
+
+.section__sobre__logo{
+	width: 15vw;
+	height: 15vw;
+	margin: 8%;
 }
 
 .section__sobre__title{
@@ -94,6 +144,17 @@ body{
 	text-align: justify;
 }
 
+@media(max-width: 780px) {
+	.section__sobre {
+		padding-top: 100px;
+	}
+
+	.section__sobre__logo {
+		width: 30vw;
+		height: 30vw;
+	}
+}
+
 .section__video{
 	display: flex;
 	justify-content: center
@@ -105,7 +166,7 @@ body{
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	align-content: flex-start
+	align-content: flex-start;
 }
 
 .section__video__item__icon{
@@ -114,9 +175,14 @@ body{
 }
 
 .section__video__item__title{
+	width: calc(100% - 75px);
 	font-weight: 700;
 	font-size: 30px;
 	color: #DB805D;
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .section__video__item__media{
@@ -124,6 +190,16 @@ body{
 	height: 35vh;
 	margin: 20px 0;
 	background: #000;
+}
+
+@media(max-width: 780px) {
+	.section__video {
+		align-items: center;
+		flex-direction: column;
+	}
+	.section__video__item {
+		width: 100%;
+	}
 }
 
 .section__contact{
@@ -202,6 +278,7 @@ body{
 .section__contact__email__form{
 	width: 100%;
 	padding: 20px;
+	border-radius: 10px;
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -245,4 +322,19 @@ body{
 	background: #DB805D; 
 	border-radius: 5px;
 	border: none;
+}
+
+@media(max-width: 780px) {
+	.section__contact {
+		flex-direction: column;
+		align-items: center;
+	}
+	.section__contact__info, 
+	.section__contact__email {
+		width: 100%;
+	}
+
+	.section__contact__email {
+		order: -1;
+	}
 }
