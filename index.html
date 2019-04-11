@@ -10,34 +10,57 @@
 <body>
 <header class="header">
 	<h1 class="header__title">comuREDE</h1>
-	<img class="header__menu__mobile" src="./images/menu-purple.svg" alt="Menu">
+	<img 
+		class="header__menu__mobile" 
+		onclick="openMenu()"
+		src="./images/menu-purple.svg" alt="Menu">
 	<nav class="header__menu">
-		<img class="header__menu__mobileClose" src="./images/close-purple.svg" alt="Menu">
-		<a class="header__menu__items">sobre</a>
-		<a class="header__menu__items">videos</a>
-		<a class="header__menu__items">contato</a>
+		<img 
+			class="header__menu__mobileClose" 
+			onclick="openMenu()"
+			src="./images/close-purple.svg" alt="Menu">
+		<a class="header__menu__items" 
+			onclick="openMenu()" 
+			href="#about">sobre</a>
+		<a class="header__menu__items"  
+			onclick="openMenu()"
+			href="#videos">videos</a>
+		<a class="header__menu__items"  
+			onclick="openMenu()"
+			href="#contact">contato</a>
 	</nav>
 </header>
 <main class="main">
-	<section class="main__section section__sobre">
+	<section class="main__section section__sobre" id="about">
 		<img class="section__sobre__logo" src="./images/logo-comuREDE_02.png" alt="Logo comuREDE">
 		<h2 class="section__sobre__title">Sobre o projeto</h2>
 		<p class="section__sobre__paragraph">Iniciativa começada em 2014, motivada pela participação em oficinas de Redes Livres promovida no Circo Voador por coletivos dessa tecnologia baseados no RJ. Desde então, com uma aproximação junto a comunidade de Open Source e cultura maker e pela observação de demandas de moradores no bairro do Fonseca – Niterói, foi proposta a plataforma através da startup de impacto social COMUREDE, para democratização do acesso a internet, assim como empoderamento de comunidades por meio de tecnologias acessíveis.</p>
 		<p class="section__sobre__paragraph">Hoje distribuímos internet gratuita com um piloto em uma rua de 75 residências e cerca de 200 moradores, além de termos implantado um serviço de notificação por SMS sobre se faltou luz ou se tá caindo água, também sem custos para os usuários.</p>
 	</section>
-	<section class="main__section section__video">
+	<section class="main__section section__video" id="videos">
 		<div class="section__video__item">
 			<img class="section__video__item__icon" src="./images/play-button-orange.svg" alt="Icone video">
 			<h3 class="section__video__item__title">Institucional</h3>
-			<video class="section__video__item__media" src=""></video>
+			<iframe 
+				width="100%" height="55%"
+				src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FcomuREDE%2Fvideos%2F897710280400227%2F&show_text=0&width=560"  frameborder="0" 
+				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+				allowFullScreen></iframe>
 		</div>
 		<div class="section__video__item">
 			<img class="section__video__item__icon" src="./images/play-button-orange.svg" alt="Icone video">
 			<h3 class="section__video__item__title">Video para o canal Futura</h3>
-			<video class="section__video__item__media src="></video>
+			<iframe 
+				width="100%" height="52%"
+				src="https://www.youtube.com/embed/cU2hTk_DmrE" 
+				frameborder="0" 
+				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+				allowTransparency
+				allowfullscreen>
+			</iframe>
 		</div>
 	</section>
-	<section class="main__section section__contact">
+	<section class="main__section section__contact" id="contact">
 		<div class="section__contact__info">
 			<h3 class="section__contact__info__title">Contate-nos agora!</h3>
 			<p class="section__contact__info__text">Teremos o maior prazer em atende-lo.</p>
@@ -86,5 +109,81 @@
 		</div>
 	</section>
 </main>
+<script>
+	const menuItems = document.querySelectorAll('.header__menu a[href^="#"]');
+
+	function getScrollTopByHref(element) {
+		const id = element.getAttribute('href');
+		return document.querySelector(id).offsetTop;
+	}
+
+	function scrollToPosition(to) {
+		smoothScrollTo(0, to);
+	}
+
+	function scrollToIdOnClick(event) {
+		event.preventDefault();
+		const to = getScrollTopByHref(event.currentTarget)- 60;
+		scrollToPosition(to);
+	}
+
+	menuItems.forEach(item => {
+		item.addEventListener('click', scrollToIdOnClick);
+	});
+
+	function smoothScrollTo(endX, endY, duration) {
+		const startX = window.scrollX || window.pageXOffset;
+		const startY = window.scrollY || window.pageYOffset;
+		const distanceX = endX - startX;
+		const distanceY = endY - startY;
+		const startTime = new Date().getTime();
+
+		duration = typeof duration !== 'undefined' ? duration : 400;
+
+		// Easing function
+		const easeInOutQuart = (time, from, distance, duration) => {
+			if ((time /= duration / 2) < 1) return distance / 2 * time * time * time * time + from;
+			return -distance / 2 * ((time -= 2) * time * time * time - 2) + from;
+		};
+
+		const timer = setInterval(() => {
+			const time = new Date().getTime() - startTime;
+			const newX = easeInOutQuart(time, startX, distanceX, duration);
+			const newY = easeInOutQuart(time, startY, distanceY, duration);
+			if (time >= duration) {
+				clearInterval(timer);
+			}
+			window.scroll(newX, newY);
+		}, 1000 / 60);
+	};
+
+	// const menu = document.querySelector('.header__menu__mobile');
+
+	// menu.addEventListener(click, openMenu);
+
+	const openMenu = () => {
+		const headerMenu = document.querySelector('.header__menu');
+
+		if(headerMenu.style.display == 'none') {
+			headerMenu.style.display = 'flex';
+		} else {
+			headerMenu.style.display = 'none';
+		}
+	}
+
+	const scroll = () => {
+		const header = document.querySelector('.header');
+		const title = document.querySelector('.header__title');
+		
+		if(window.scrollY >= 100) {
+			header.style.height = '60px';
+			title.style.fontSize = '30px';
+		} else {
+			header.style.height = '92px';
+			title.style.fontSize = '40px';
+		}
+	}
+	window.onscroll = scroll;
+</script>
 </body>
 </html>

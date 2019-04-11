@@ -67,6 +67,7 @@ body{
 	font-weight: 700;
 	font-size: 30px;
 	color: #8641C4;
+	text-decoration: none;
 }
 
 .header__menu__mobile{
@@ -96,8 +97,8 @@ body{
 	.header__menu__mobile{
 		display: initial;
 	}
-	.header__menu__mobile:hover ~ .header__menu{
-		display: flex;
+	.header__menu__mobileClose{
+		display: initial;
 	}
 }
 
@@ -172,10 +173,12 @@ body{
 .section__video__item__icon{
 	width: 60px;
 	margin-right: 15px;
+	margin-bottom: 20px;
 }
 
 .section__video__item__title{
 	width: calc(100% - 75px);
+	margin-bottom: 20px;
 	font-weight: 700;
 	font-size: 30px;
 	color: #DB805D;
@@ -186,8 +189,8 @@ body{
 }
 
 .section__video__item__media{
-	width: 100%;
-	height: 35vh;
+	/* width: 100%;
+	height: 35vh; */
 	margin: 20px 0;
 	background: #000;
 }
@@ -203,7 +206,7 @@ body{
 }
 
 .section__contact{
-	padding-top: 10%;
+	padding-top: 5%;
 	padding-bottom: 5%;
 	background: #8641C4 url('./images/bc_air-purple.jpg') no-repeat;
 	background-size: cover;
