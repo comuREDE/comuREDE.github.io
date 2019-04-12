@@ -102,21 +102,24 @@
 			<img class="section__contact__email__icon" 
 				src="./images/envelope-orange.svg" 
 				alt="Icone email">
-			<form class="section__contact__email__form">
+			<form 
+				class="section__contact__email__form"
+				action="https://formspree.io/contato@comurede.net" 
+				method="POST">
 				<label class="section__contact__email__label">
 					nome
-					<input class="section__contact__email__input" type="text">
+					<input class="section__contact__email__input" type="text" name="name">
 				</label>
 				<label class="section__contact__email__label">
 					email
-					<input class="section__contact__email__input" type="text">
+					<input class="section__contact__email__input" type="text" name="_replyto">
 				</label>
 				<label class="section__contact__email__label">
 					mensagem
-					<textarea class="section__contact__email__textArea"></textarea>
+					<textarea class="section__contact__email__textArea" name="name"></textarea>
 				</label>
 				<div class="section__contact__email__btnContainer">
-					<button class="section__contact__email__btn" type="button">enviar</button>
+					<button class="section__contact__email__btn" type="submit" value="Send">enviar</button>
 				</div>
 			</form>
 		</div>
